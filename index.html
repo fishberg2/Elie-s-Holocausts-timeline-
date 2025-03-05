@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,6 +113,18 @@
             color: #722f2f;
             white-space: nowrap;
         }
+        
+        .event-title {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.1rem;
+            color: #722f2f;
+            white-space: nowrap;
+            font-weight: bold;
+            text-align: center;
+        }
 
         .content {
             display: none;
@@ -163,10 +176,14 @@
             .year {
                 font-size: 1rem;
             }
+            
+            .event-title {
+                font-size: 0.9rem;
+                top: -60px;
+            }
         }
     </style>
 </head>
-<body>
     <div class="main-container">
         <div class="title-container">
             <h1 class="main-title">Elie's Holocaust Timeline</h1>
@@ -176,23 +193,236 @@
             <div class="line"></div>
             <div class="timeline-points" id="timelinePoints">
                 <div class="point" data-content="Adolf Hitler's appointment as Chancellor of Germany in 1933 marked the beginning of Nazi control over the government, allowing him to implement policies of persecution against Jews and other minorities. His rise to power directly led to the systematic oppression, dehumanization, and eventual mass extermination of six million Jews in the Holocaust.">
+                	<div class="event-title">hitler chancellor</div>
                     <div class="year">January 30 1933</div>
                     <div class="content">Adolf Hitler's appointment as Chancellor of Germany in 1933 marked the beginning of Nazi control over the government, allowing him to implement policies of persecution against Jews and other minorities. His rise to power directly led to  the systematic oppression, dehumanization, and eventual mass extermination of six million Jews in the Holocaust.</div>
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="Following the death of President Paul von Hindenburg, Adolf Hitler gained more power by merging the offices of Chancellor and President, declaring himself Führer und Reichskanzler (Leader and Reich Chancellor) of Germany. This move abolishes any remaining checks on his authority. The German armed forces are now required to swear an oath of personal loyalty to Hitler rather than to the German state or constitution. This effectively makes the military subordinate to his absolute rule, further solidifying his dictatorship. Hitler's new title marks the final step in the Nazi Party's complete control over Germany, setting the stage for totalitarian rule.">
+                	<div class="event-title">hitler becoumes Führer</div>
                     <div class="year">August 2, 1934 </div>
                     <div class="content">Following the death of President Paul von Hindenburg, Adolf Hitler gained more power by merging the offices of Chancellor and President, declaring himself Führer und Reichskanzler (Leader and Reich Chancellor) of Germany. This move abolishes any remaining checks on his authority. The German armed forces are now required to swear an oath of personal loyalty to Hitler rather than to the German state or constitution. This effectively makes the military subordinate to his absolute rule, further solidifying his dictatorship. Hitler's new title marks the final step in the Nazi Party's complete control over Germany, setting the stage for totalitarian rule.
                     </div>
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="The Nazi government officially defines who is considered Jewish under the Nuremberg Laws. According to these racial laws, a Jew is someone with three or more Jewish grandparents or a person with two Jewish grandparents who identifies as Jewish through religious practice or cultural affiliation. These laws institutionalized discrimination against Jews, stripping them of German citizenship and prohibiting intermarriage between Jews and non-Jews. This legal framework lays the foundation for further persecution, isolating Jews from the rest of society and preparing for the more radical policies of exclusion and extermination that would follow in the coming years.">
+                	<div class="event-title">Nuremberg Laws Definition</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: 'IM Fell English', serif;
+            background-color: #f4e9e1;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 2000px;
+            overflow: hidden;
+            padding: 40px 20px;
+            margin-bottom: 100px;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            color: #722f2f;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #5f2424;
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            width: 100%;
+            margin-top: 40px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+        }
+
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #722f2f;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .timeline-points {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            transition: transform 0.3s ease;
+            cursor: grab;
+            padding: 50px 20px;
+            width: max-content;
+        }
+
+        .timeline-points.grabbing {
+            cursor: grabbing;
+        }
+
+        .point {
+            position: relative;
+            width: 4px;
+            height: 4px;
+            background-color: #722f2f;
+            border-radius: 50%;
+            margin: 0 40px;
+            cursor: pointer;
+            z-index: 2;
+            transition: transform 0.3s;
+        }
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #722f2f;
+            border-radius: 50%;
+            margin: 0 40px;
+            opacity: 0.5;
+        }
+
+        .point:hover {
+            transform: scale(1.5);
+        }
+
+        .year {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            color: #722f2f;
+            white-space: nowrap;
+        }
+        
+        .event-title {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.1rem;
+            color: #722f2f;
+            white-space: nowrap;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .content {
+            display: none;
+            position: absolute;
+            width: 100%;
+            max-width: 800px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background-color: rgba(114, 47, 47, 0.1);
+            padding: 15px;
+            border-left: 3px solid #722f2f;
+            color: #5f2424;
+            font-size: 1rem;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .content-display {
+            width: 100%;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(114, 47, 47, 0.1);
+            border-left: 3px solid #722f2f;
+            color: #5f2424;
+            text-align: center;
+            box-sizing: border-box;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-text {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .year {
+                font-size: 1rem;
+            }
+            
+            .event-title {
+                font-size: 0.9rem;
+                top: -60px;
+            }
+        }
+    </style>
+</head>
+    <div class="main-container">
+        <div class="title-container">
+            <h1 class="main-title">Elie's Holocaust Timeline</h1>
+            <p class="subtitle">A Chronological Journey Through Critical Events</p>
+        </div>
+        <div class="timeline">
+            <div class="line"></div>
+            <div class="timeline-points" id="timelinePoints">
+                <div class="point" data-content="Adolf Hitler's appointment as Chancellor of Germany in 1933 marked the beginning of Nazi control over the government, allowing him to implement policies of persecution against Jews and other minorities. His rise to power directly led to the systematic oppression, dehumanization, and eventual mass extermination of six million Jews in the Holocaust.">
+                	<div class="event-title">hitler chancellor</div>
+                    <div class="year">January 30 1933</div>
+                    <div class="content">Adolf Hitler's appointment as Chancellor of Germany in 1933 marked the beginning of Nazi control over the government, allowing him to implement policies of persecution against Jews and other minorities. His rise to power directly led to  the systematic oppression, dehumanization, and eventual mass extermination of six million Jews in the Holocaust.</div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="Following the death of President Paul von Hindenburg, Adolf Hitler gained more power by merging the offices of Chancellor and President, declaring himself Führer und Reichskanzler (Leader and Reich Chancellor) of Germany. This move abolishes any remaining checks on his authority. The German armed forces are now required to swear an oath of personal loyalty to Hitler rather than to the German state or constitution. This effectively makes the military subordinate to his absolute rule, further solidifying his dictatorship. Hitler's new title marks the final step in the Nazi Party's complete control over Germany, setting the stage for totalitarian rule.">
+                	<div class="event-title">hitler becoumes Führer</div>
+                    <div class="year">August 2, 1934 </div>
+                    <div class="content">Following the death of President Paul von Hindenburg, Adolf Hitler gained more power by merging the offices of Chancellor and President, declaring himself Führer und Reichskanzler (Leader and Reich Chancellor) of Germany. This move abolishes any remaining checks on his authority. The German armed forces are now required to swear an oath of personal loyalty to Hitler rather than to the German state or constitution. This effectively makes the military subordinate to his absolute rule, further solidifying his dictatorship. Hitler's new title marks the final step in the Nazi Party's complete control over Germany, setting the stage for totalitarian rule.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="The Nazi government officially defines who is considered Jewish under the Nuremberg Laws. According to these racial laws, a Jew is someone with three or more Jewish grandparents or a person with two Jewish grandparents who identifies as Jewish through religious practice or cultural affiliation. These laws institutionalized discrimination against Jews, stripping them of German citizenship and prohibiting intermarriage between Jews and non-Jews. This legal framework lays the foundation for further persecution, isolating Jews from the rest of society and preparing for the more radical policies of exclusion and extermination that would follow in the coming years.">
+                	<div class="event-title">Nuremberg Laws Definition</div>
                     <div class="year">November 15, 1935 </div>
                     <div class="content">The Nazi government officially defines who is considered Jewish under the Nuremberg Laws. According to these racial laws, a Jew is someone with three or more Jewish grandparents or a person with two Jewish grandparents who identifies as Jewish through religious practice or cultural affiliation. These laws institutionalized discrimination against Jews, stripping them of German citizenship and prohibiting intermarriage between Jews and non-Jews. This legal framework lays the foundation for further persecution, isolating Jews from the rest of society and preparing for the more radical policies of exclusion and extermination that would follow in the coming years.
                     </div>
                 </div>
+                
                 <div class="dot"></div>
                 <div class="point" data-content="Kristallnacht, or the 'Night of Broken Glass,' is a state-sponsored pogrom against Jews in Germany, Austria, and the Sudetenland. Nazi paramilitary groups and civilians attack Jewish communities, burning 200 synagogues, destroying 7,500 Jewish-owned businesses, and vandalizing Jewish homes, schools, and hospitals. Approximately 30,000 Jewish men are arrested and sent to concentration camps such as Dachau, Buchenwald, and Sachsenhausen, marking the first mass incarceration of Jews under Nazi rule. The violence signals a dramatic escalation in Nazi persecution, as the regime moves from legal discrimination to outright physical assault, foreshadowing the genocide to come in the Holocaust.">
+                    <div class="event-title">Kristallancht</div>
                     <div class="year">November 9, 1938  
                     </div>
                     <div class="content">Kristallnacht, or the "Night of Broken Glass," is a state-sponsored pogrom against Jews in Germany, Austria, and the Sudetenland. Nazi paramilitary groups and civilians attack Jewish communities, burning 200 synagogues, destroying 7,500 Jewish-owned businesses, and vandalizing Jewish homes, schools, and hospitals. Approximately 30,000 Jewish men are arrested and sent to concentration camps such as Dachau, Buchenwald, and Sachsenhausen, marking the first mass incarceration of Jews under Nazi rule. The violence signals a dramatic escalation in Nazi persecution, as the regime moves from legal discrimination to outright physical assault, foreshadowing the genocide to come in the Holocaust.
@@ -200,12 +430,14 @@
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="Germany invades Poland, launching World War II. The German battleship Schleswig-Holstein opens fire on the Polish garrison at Westerplatte, while German forces cross the border from multiple directions. The invasion follows the secret Molotov-Ribbentrop Pact between Nazi Germany and the Soviet Union, which includes a plan to divide Poland between them. Britain and France declare war on Germany on September 3, but their intervention does not stop Poland's swift defeat. The invasion introduces Blitzkrieg (lightning war) tactics--fast-moving, mechanized warfare--that quickly overwhelm Polish forces. Within weeks, Poland is occupied, and Nazi rule brings brutal repression and mass executions.">
-                    <div class="year">September 1, 1939 </div>
+                   <div class="event-title">WWII Starts</div>
+                   <div class="year">September 1, 1939 </div>
                     <div class="content">Germany invades Poland, launching World War II. The German battleship Schleswig-Holstein opens fire on the Polish garrison at Westerplatte, while German forces cross the border from multiple directions. The invasion follows the secret Molotov-Ribbentrop Pact between Nazi Germany and the Soviet Union, which includes a plan to divide Poland between them. Britain and France declare war on Germany on September 3, but their intervention does not stop Poland's swift defeat. The invasion introduces Blitzkrieg (lightning war) tactics--fast-moving, mechanized warfare--that quickly overwhelm Polish forces. Within weeks, Poland is occupied, and Nazi rule brings brutal repression and mass executions.
                     </div>
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="Nazi Germany establishes Auschwitz concentration camp in occupied Poland. Originally intended for Polish political prisoners, Auschwitz quickly expands into a major site of forced labor and mass murder. Located near the town of Oświęcim, the camp grew into a complex of subcamps, including Auschwitz-Birkenau, where mass gassings began in 1942. Eventually, over 1.1 million people--mostly Jews--are murdered in Auschwitz. The camp also serves as a center for horrific medical experiments conducted by Nazi doctors such as Josef Mengele. Auschwitz becomes the most infamous symbol of the Holocaust, representing the industrialized genocide committed by the Nazi regime.">
+                <div class="event-title">Auschwiz is established</div>
                     <div class="year">May 20, 1940  
                     </div>
                     <div class="content">Nazi Germany establishes Auschwitz concentration camp in occupied Poland. Originally intended for Polish political prisoners, Auschwitz quickly expands into a major site of forced labor and mass murder. Located near the town of Oświęcim, the camp grew into a complex of subcamps, including Auschwitz-Birkenau, where mass gassings began in 1942. Eventually, over 1.1 million people--mostly Jews--are murdered in Auschwitz. The camp also serves as a center for horrific medical experiments conducted by Nazi doctors such as Josef Mengele. Auschwitz becomes the most infamous symbol of the Holocaust, representing the industrialized genocide committed by the Nazi regime.
@@ -213,11 +445,13 @@
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="The Nazi government mandates that all Jews in Germany and occupied territories wear a yellow Star of David with the word 'Jude' (Jew) prominently displayed. This public identification further isolates Jews, making them easy targets for discrimination, violence, and deportation. The requirement marks a shift from social exclusion to active persecution, as Jews are increasingly subjected to restrictions on movement, employment, and daily life. This measure foreshadows the mass deportations to ghettos and extermination camps that will soon follow. The yellow star becomes one of the most infamous symbols of Nazi oppression and the dehumanization of Jewish communities.">
+                <div class="event-title">Yellow Star of David</div>
                     <div class="year">September 1, 1941  
                     </div>
                     <div class="content">The Nazi government mandates that all Jews in Germany and occupied territories wear a yellow Star of David with the word "Jude" (Jew) prominently displayed. This public identification further isolates Jews, making them easy targets for discrimination, violence, and deportation. The requirement marks a shift from social exclusion to active persecution, as Jews are increasingly subjected to restrictions on movement, employment, and daily life. This measure foreshadows the mass deportations to ghettos and extermination camps that will soon follow. The yellow star becomes one of the most infamous symbols of Nazi oppression and the dehumanization of Jewish communities.
                     </div>
                 </div>
+                
                 <div class="dot"></div>
                 <div class="point" data-content="The world around me is crumbling, and every day, I feel as if we are being suffocated by forces beyond our control. Today, we received news that all Jews must wear the yellow star. I held mine in my hands for a long time before my father urged me to sew it onto my coat. My hands trembled as I worked the needle through the fabric. It felt like a brand, something meant to shame us, to set us apart even more than we already were.
 
@@ -227,6 +461,7 @@
                 
                 Tonight, I lie awake, staring at the ceiling, the yellow star burning against my chest. I wonder how long before this marking becomes something more, something far worse.
                 ">
+                	<div class="event-title">Elie Diary </div>
                     <div class="year">September 5 1941</div>
                     <div class="content">The world around me is crumbling, and every day, I feel as if we are being suffocated by forces beyond our control. Today, we received news that all Jews must wear the yellow star. I held mine in my hands for a long time before my father urged me to sew it onto my coat. My hands trembled as I worked the needle through the fabric. It felt like a brand, something meant to shame us, to set us apart even more than we already were.
 
@@ -239,6 +474,8 @@
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="Japan launches a surprise attack on the U.S. naval base at Pearl Harbor, Hawaii, drawing the United States into World War II. Japanese aircraft bomb battleships and airfields, sinking or damaging eight battleships, including the USS Arizona and USS Oklahoma. Over 2,400 Americans are killed, and hundreds more are wounded. The next day, the United States declares war on Japan, marking its official entry into the global conflict. Germany and Italy, Japan's Axis allies, declare war on the U.S. soon after. The attack on Pearl Harbor dramatically shifts the war's course, leading to the Pacific Theater's expansion.">
+                
+                <div class="event-title">Pear Harbor</div>
                     <div class="year">December 7, 1941  
                     </div>
                     <div class="content">Japan launches a surprise attack on the U.S. naval base at Pearl Harbor, Hawaii, drawing the United States into World War II. Japanese aircraft bomb battleships and airfields, sinking or damaging eight battleships, including the USS Arizona and USS Oklahoma. Over 2,400 Americans are killed, and hundreds more are wounded. The next day, the United States declares war on Japan, marking its official entry into the global conflict. Germany and Italy, Japan's Axis allies, declare war on the U.S. soon after. The attack on Pearl Harbor dramatically shifts the war's course, leading to the Pacific Theater's expansion.
@@ -246,6 +483,7 @@
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="The Nazi regime begins systematic mass extermination at Belzec, one of the first death camps of Operation Reinhard. Located in occupied Poland, Belzec serves as a key site for the genocide of European Jews. By the end of 1942, around 600,000 Jews were murdered there, primarily through gas chambers disguised as showers. Victims are transported by train, stripped of belongings, and executed within hours of arrival. Very few survive to tell the story of Belzec. This marks the escalation of the Final Solution, the Nazi plan to annihilate the Jewish people, using industrialized killing methods perfected in death camps.">
+                    <div class="event-title">The Extermination at Belzec</div>
                     <div class="year">March 17, 1942  
                     </div>
                     <div class="content">The Nazi regime begins systematic mass extermination at Belzec, one of the first death camps of Operation Reinhard. Located in occupied Poland, Belzec serves as a key site for the genocide of European Jews. By the end of 1942, around 600,000 Jews were murdered there, primarily through gas chambers disguised as showers. Victims are transported by train, stripped of belongings, and executed within hours of arrival. Very few survive to tell the story of Belzec. This marks the escalation of the Final Solution, the Nazi plan to annihilate the Jewish people, using industrialized killing methods perfected in death camps.
@@ -253,6 +491,7 @@
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="The Warsaw Ghetto Uprising begins as Jewish resistance fighters launch an armed rebellion against Nazi efforts to liquidate the remaining 70,000 inhabitants. After years of starvation and deportations, Jewish underground groups, using smuggled weapons and homemade explosives, engage in fierce street battles against heavily armed German troops. Despite being vastly outnumbered, the resistance holds out for nearly a month before the Nazis systematically destroy the ghetto. Thousands are killed, and survivors are sent to concentration camps. Though ultimately crushed, the uprising becomes a symbol of Jewish defiance against Nazi oppression and inspires future acts of resistance in occupied Europe.">
+                    <div class="event-title">Warsaw ghetto uprising</div>
                     <div class="year">April 19, 1943 </div>
                     <div class="content">The Warsaw Ghetto Uprising begins as Jewish resistance fighters launch an armed rebellion against Nazi efforts to liquidate the remaining 70,000 inhabitants. After years of starvation and deportations, Jewish underground groups, using smuggled weapons and homemade explosives, engage in fierce street battles against heavily armed German troops. Despite being vastly outnumbered, the resistance holds out for nearly a month before the Nazis systematically destroy the ghetto. Thousands are killed, and survivors are sent to concentration camps. Though ultimately crushed, the uprising becomes a symbol of Jewish defiance against Nazi oppression and inspires future acts of resistance in occupied Europe.
                     </div>
@@ -268,6 +507,7 @@
                 I try to push these thoughts away, but the fear is unbearable. How much longer can we endure this? The train rattles on, carrying us into the unknown. In the darkness, I close my eyes and whisper a prayer, though I do not know if anyone is listening.
                 
                 ">
+                	<div class="event-title">Elies Diray</div>
                     <div class="year">May 20, 1944
                     </div>
                     <div class="content">
@@ -285,6 +525,7 @@
 
                 <div class="dot"></div>
                 <div class="point" data-content="As Soviet forces advance toward Auschwitz, the SS begins evacuating the camp, forcing around 60,000 prisoners on a brutal death march westward. Those too weak to walk are executed on the spot. Over 15,000 prisoners die from exposure, starvation, or shootings during the journey. The evacuation aims to prevent the liberation of prisoners who could testify to the Nazis' crimes. When Soviet troops arrive at Auschwitz on January 27, they find only 7,000 survivors, mostly sick and dying. The liberation of Auschwitz exposes the full horror of Nazi atrocities, with gas chambers, crematoria, and mass graves revealing the scale of genocide.">
+                    <div class="event-title">Auschwitz death march</div>
                     <div class="year">January 17, 1945  </div>
                     <div class="content">As Soviet forces advance toward Auschwitz, the SS begins evacuating the camp, forcing around 60,000 prisoners on a brutal death march westward. Those too weak to walk are executed on the spot. Over 15,000 prisoners die from exposure, starvation, or shootings during the journey. The evacuation aims to prevent the liberation of prisoners who could testify to the Nazis' crimes. When Soviet troops arrive at Auschwitz on January 27, they find only 7,000 survivors, mostly sick and dying. The liberation of Auschwitz exposes the full horror of Nazi atrocities, with gas chambers, crematoria, and mass graves revealing the scale of genocide.
                     </div>
@@ -302,6 +543,7 @@
                 
                 I am afraid to sleep. I know that if I close my eyes, I may never open them again.
                 ">
+                    <div class="event-title">Elies Dairy</div>
                     <div class="year">January 20, 1945</div>
                     <div class="content">I am still alive. Barely.
 
@@ -318,6 +560,7 @@
                 </div>
                 <div class="dot"></div>
                 <div class="point" data-content="Japan formally surrenders to the Allies aboard the USS Missouri in Tokyo Bay, bringing World War II to an official end. The ceremony is attended by U.S. General Douglas MacArthur, who oversees the proceedings, and representatives of the Allied nations. Japan's surrender follows the atomic bombings of Hiroshima and Nagasaki in August, as well as the Soviet Union's declaration of war. The end of the war marks the beginning of a new geopolitical order, with the United States and the Soviet Union emerging as superpowers. The world begins efforts to rebuild, while the horrors of the Holocaust and war crimes trials shape postwar justice .">
+                    <div class="event-title">End of WWII</div>
                     <div class="year">September 2, 1945  
                     </div>
                     <div class="content">Japan formally surrenders to the Allies aboard the USS Missouri in Tokyo Bay, bringing World War II to an official end. The ceremony is attended by U.S. General Douglas MacArthur, who oversees the proceedings, and representatives of the Allied nations. Japan's surrender follows the atomic bombings of Hiroshima and Nagasaki in August, as well as the Soviet Union's declaration of war. The end of the war marks the beginning of a new geopolitical order, with the United States and the Soviet Union emerging as superpowers. The world begins efforts to rebuild, while the horrors of the Holocaust and war crimes trials shape postwar justice .
@@ -419,3 +662,251 @@
     </script>
 </body>
 </html>
+                    <div class="year">November 15, 1935 </div>
+                    <div class="content">The Nazi government officially defines who is considered Jewish under the Nuremberg Laws. According to these racial laws, a Jew is someone with three or more Jewish grandparents or a person with two Jewish grandparents who identifies as Jewish through religious practice or cultural affiliation. These laws institutionalized discrimination against Jews, stripping them of German citizenship and prohibiting intermarriage between Jews and non-Jews. This legal framework lays the foundation for further persecution, isolating Jews from the rest of society and preparing for the more radical policies of exclusion and extermination that would follow in the coming years.
+                    </div>
+                </div>
+                
+                <div class="dot"></div>
+                <div class="point" data-content="Kristallnacht, or the 'Night of Broken Glass,' is a state-sponsored pogrom against Jews in Germany, Austria, and the Sudetenland. Nazi paramilitary groups and civilians attack Jewish communities, burning 200 synagogues, destroying 7,500 Jewish-owned businesses, and vandalizing Jewish homes, schools, and hospitals. Approximately 30,000 Jewish men are arrested and sent to concentration camps such as Dachau, Buchenwald, and Sachsenhausen, marking the first mass incarceration of Jews under Nazi rule. The violence signals a dramatic escalation in Nazi persecution, as the regime moves from legal discrimination to outright physical assault, foreshadowing the genocide to come in the Holocaust.">
+                    <div class="event-title">Kristallancht</div>
+                    <div class="year">November 9, 1938  
+                    </div>
+                    <div class="content">Kristallnacht, or the "Night of Broken Glass," is a state-sponsored pogrom against Jews in Germany, Austria, and the Sudetenland. Nazi paramilitary groups and civilians attack Jewish communities, burning 200 synagogues, destroying 7,500 Jewish-owned businesses, and vandalizing Jewish homes, schools, and hospitals. Approximately 30,000 Jewish men are arrested and sent to concentration camps such as Dachau, Buchenwald, and Sachsenhausen, marking the first mass incarceration of Jews under Nazi rule. The violence signals a dramatic escalation in Nazi persecution, as the regime moves from legal discrimination to outright physical assault, foreshadowing the genocide to come in the Holocaust.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="Germany invades Poland, launching World War II. The German battleship Schleswig-Holstein opens fire on the Polish garrison at Westerplatte, while German forces cross the border from multiple directions. The invasion follows the secret Molotov-Ribbentrop Pact between Nazi Germany and the Soviet Union, which includes a plan to divide Poland between them. Britain and France declare war on Germany on September 3, but their intervention does not stop Poland's swift defeat. The invasion introduces Blitzkrieg (lightning war) tactics--fast-moving, mechanized warfare--that quickly overwhelm Polish forces. Within weeks, Poland is occupied, and Nazi rule brings brutal repression and mass executions.">
+                   <div class="event-title">WWII Starts</div>
+                   <div class="year">September 1, 1939 </div>
+                    <div class="content">Germany invades Poland, launching World War II. The German battleship Schleswig-Holstein opens fire on the Polish garrison at Westerplatte, while German forces cross the border from multiple directions. The invasion follows the secret Molotov-Ribbentrop Pact between Nazi Germany and the Soviet Union, which includes a plan to divide Poland between them. Britain and France declare war on Germany on September 3, but their intervention does not stop Poland's swift defeat. The invasion introduces Blitzkrieg (lightning war) tactics--fast-moving, mechanized warfare--that quickly overwhelm Polish forces. Within weeks, Poland is occupied, and Nazi rule brings brutal repression and mass executions.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="Nazi Germany establishes Auschwitz concentration camp in occupied Poland. Originally intended for Polish political prisoners, Auschwitz quickly expands into a major site of forced labor and mass murder. Located near the town of Oświęcim, the camp grew into a complex of subcamps, including Auschwitz-Birkenau, where mass gassings began in 1942. Eventually, over 1.1 million people--mostly Jews--are murdered in Auschwitz. The camp also serves as a center for horrific medical experiments conducted by Nazi doctors such as Josef Mengele. Auschwitz becomes the most infamous symbol of the Holocaust, representing the industrialized genocide committed by the Nazi regime.">
+                <div class="event-title">Auschwiz is established</div>
+                    <div class="year">May 20, 1940  
+                    </div>
+                    <div class="content">Nazi Germany establishes Auschwitz concentration camp in occupied Poland. Originally intended for Polish political prisoners, Auschwitz quickly expands into a major site of forced labor and mass murder. Located near the town of Oświęcim, the camp grew into a complex of subcamps, including Auschwitz-Birkenau, where mass gassings began in 1942. Eventually, over 1.1 million people--mostly Jews--are murdered in Auschwitz. The camp also serves as a center for horrific medical experiments conducted by Nazi doctors such as Josef Mengele. Auschwitz becomes the most infamous symbol of the Holocaust, representing the industrialized genocide committed by the Nazi regime.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="The Nazi government mandates that all Jews in Germany and occupied territories wear a yellow Star of David with the word 'Jude' (Jew) prominently displayed. This public identification further isolates Jews, making them easy targets for discrimination, violence, and deportation. The requirement marks a shift from social exclusion to active persecution, as Jews are increasingly subjected to restrictions on movement, employment, and daily life. This measure foreshadows the mass deportations to ghettos and extermination camps that will soon follow. The yellow star becomes one of the most infamous symbols of Nazi oppression and the dehumanization of Jewish communities.">
+                <div class="event-title">Yellow Star of David</div>
+                    <div class="year">September 1, 1941  
+                    </div>
+                    <div class="content">The Nazi government mandates that all Jews in Germany and occupied territories wear a yellow Star of David with the word "Jude" (Jew) prominently displayed. This public identification further isolates Jews, making them easy targets for discrimination, violence, and deportation. The requirement marks a shift from social exclusion to active persecution, as Jews are increasingly subjected to restrictions on movement, employment, and daily life. This measure foreshadows the mass deportations to ghettos and extermination camps that will soon follow. The yellow star becomes one of the most infamous symbols of Nazi oppression and the dehumanization of Jewish communities.
+                    </div>
+                </div>
+                
+                <div class="dot"></div>
+                <div class="point" data-content="The world around me is crumbling, and every day, I feel as if we are being suffocated by forces beyond our control. Today, we received news that all Jews must wear the yellow star. I held mine in my hands for a long time before my father urged me to sew it onto my coat. My hands trembled as I worked the needle through the fabric. It felt like a brand, something meant to shame us, to set us apart even more than we already were.
+
+                On the streets of Sighet, I saw my neighbors, my friends, all marked the same way. Some walked with their heads low, defeated. Others tried to stand tall, defiant in the face of this humiliation. I do not know which I should be. My father says we must not lose hope, that this will pass. But deep inside, I feel an unease I cannot explain.
+                
+                I overheard some men in the temple whispering that this is only the beginning. That the Germans have far worse plans for us. I do not want to believe them. How can such things be true? This is our home. We have done nothing wrong. God will save us, he will always save us. But something about the way my father’s face tightened when he read the decree tells me that he, too, is afraid.j
+                
+                Tonight, I lie awake, staring at the ceiling, the yellow star burning against my chest. I wonder how long before this marking becomes something more, something far worse.
+                ">
+                	<div class="event-title">Elie Diary </div>
+                    <div class="year">September 5 1941</div>
+                    <div class="content">The world around me is crumbling, and every day, I feel as if we are being suffocated by forces beyond our control. Today, we received news that all Jews must wear the yellow star. I held mine in my hands for a long time before my father urged me to sew it onto my coat. My hands trembled as I worked the needle through the fabric. It felt like a brand, something meant to shame us, to set us apart even more than we already were.
+
+                        On the streets of Sighet, I saw my neighbors, my friends, all marked the same way. Some walked with their heads low, defeated. Others tried to stand tall, defiant in the face of this humiliation. I do not know which I should be. My father says we must not lose hope, that this will pass. But deep inside, I feel an unease I cannot explain.
+                        
+                        I overheard some men in the temple whispering that this is only the beginning. That the Germans have far worse plans for us. I do not want to believe them. How can such things be true? This is our home. We have done nothing wrong. God will save us, he will always save us. But something about the way my father’s face tightened when he read the decree tells me that he, too, is afraid.j
+                        
+                        Tonight, I lie awake, staring at the ceiling, the yellow star burning against my chest. I wonder how long before this marking becomes something more, something far worse.
+                        </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="Japan launches a surprise attack on the U.S. naval base at Pearl Harbor, Hawaii, drawing the United States into World War II. Japanese aircraft bomb battleships and airfields, sinking or damaging eight battleships, including the USS Arizona and USS Oklahoma. Over 2,400 Americans are killed, and hundreds more are wounded. The next day, the United States declares war on Japan, marking its official entry into the global conflict. Germany and Italy, Japan's Axis allies, declare war on the U.S. soon after. The attack on Pearl Harbor dramatically shifts the war's course, leading to the Pacific Theater's expansion.">
+                
+                <div class="event-title">Pear Harbor</div>
+                    <div class="year">December 7, 1941  
+                    </div>
+                    <div class="content">Japan launches a surprise attack on the U.S. naval base at Pearl Harbor, Hawaii, drawing the United States into World War II. Japanese aircraft bomb battleships and airfields, sinking or damaging eight battleships, including the USS Arizona and USS Oklahoma. Over 2,400 Americans are killed, and hundreds more are wounded. The next day, the United States declares war on Japan, marking its official entry into the global conflict. Germany and Italy, Japan's Axis allies, declare war on the U.S. soon after. The attack on Pearl Harbor dramatically shifts the war's course, leading to the Pacific Theater's expansion.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="The Nazi regime begins systematic mass extermination at Belzec, one of the first death camps of Operation Reinhard. Located in occupied Poland, Belzec serves as a key site for the genocide of European Jews. By the end of 1942, around 600,000 Jews were murdered there, primarily through gas chambers disguised as showers. Victims are transported by train, stripped of belongings, and executed within hours of arrival. Very few survive to tell the story of Belzec. This marks the escalation of the Final Solution, the Nazi plan to annihilate the Jewish people, using industrialized killing methods perfected in death camps.">
+                    <div class="event-title">The Extermination at Belzec</div>
+                    <div class="year">March 17, 1942  
+                    </div>
+                    <div class="content">The Nazi regime begins systematic mass extermination at Belzec, one of the first death camps of Operation Reinhard. Located in occupied Poland, Belzec serves as a key site for the genocide of European Jews. By the end of 1942, around 600,000 Jews were murdered there, primarily through gas chambers disguised as showers. Victims are transported by train, stripped of belongings, and executed within hours of arrival. Very few survive to tell the story of Belzec. This marks the escalation of the Final Solution, the Nazi plan to annihilate the Jewish people, using industrialized killing methods perfected in death camps.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="The Warsaw Ghetto Uprising begins as Jewish resistance fighters launch an armed rebellion against Nazi efforts to liquidate the remaining 70,000 inhabitants. After years of starvation and deportations, Jewish underground groups, using smuggled weapons and homemade explosives, engage in fierce street battles against heavily armed German troops. Despite being vastly outnumbered, the resistance holds out for nearly a month before the Nazis systematically destroy the ghetto. Thousands are killed, and survivors are sent to concentration camps. Though ultimately crushed, the uprising becomes a symbol of Jewish defiance against Nazi oppression and inspires future acts of resistance in occupied Europe.">
+                    <div class="event-title">Warsaw ghetto uprising</div>
+                    <div class="year">April 19, 1943 </div>
+                    <div class="content">The Warsaw Ghetto Uprising begins as Jewish resistance fighters launch an armed rebellion against Nazi efforts to liquidate the remaining 70,000 inhabitants. After years of starvation and deportations, Jewish underground groups, using smuggled weapons and homemade explosives, engage in fierce street battles against heavily armed German troops. Despite being vastly outnumbered, the resistance holds out for nearly a month before the Nazis systematically destroy the ghetto. Thousands are killed, and survivors are sent to concentration camps. Though ultimately crushed, the uprising becomes a symbol of Jewish defiance against Nazi oppression and inspires future acts of resistance in occupied Europe.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="
+                The world I knew no longer exists. Today, I stood crammed inside a cattle car, suffocating from the heat, the stench, and the fear. The ghetto is gone—our homes, everything. The Germans forced us into these trains, and now we are moving, but to where? No one knows for certain.
+                
+                The journey is unbearable. The car is filled beyond capacity, bodies pressed against each other, sweat and desperation thick in the air. People cry out for water, but there is none. A woman near me, Madame Schächter, has been screaming for hours about a fire. “Flames! I see flames!” she wails, her voice raw and broken. Some men tried to silence her, but the more she was beaten, the louder she screamed. The children clutch their mothers, and I hold onto my father’s arm, trying to steady myself.
+                
+                I think of home—the temple where I prayed, the books I studied. I think of Moishe the Beadle, his warnings that we ignored. He was right. He saw what was coming, and we refused to listen.
+                
+                I try to push these thoughts away, but the fear is unbearable. How much longer can we endure this? The train rattles on, carrying us into the unknown. In the darkness, I close my eyes and whisper a prayer, though I do not know if anyone is listening.
+                
+                ">
+                	<div class="event-title">Elies Diray</div>
+                    <div class="year">May 20, 1944
+                    </div>
+                    <div class="content">
+                        The world I knew no longer exists. Today, I stood crammed inside a cattle car, suffocating from the heat, the stench, and the fear. The ghetto is gone—our homes, everything. The Germans forced us into these trains, and now we are moving, but to where? No one knows for certain.
+                        
+                        The journey is unbearable. The car is filled beyond capacity, bodies pressed against each other, sweat and desperation thick in the air. People cry out for water, but there is none. A woman near me, Madame Schächter, has been screaming for hours about a fire. “Flames! I see flames!” she wails, her voice raw and broken. Some men tried to silence her, but the more she was beaten, the louder she screamed. The children clutch their mothers, and I hold onto my father’s arm, trying to steady myself.
+                        
+                        I think of home—the temple where I prayed, the books I studied. I think of Moishe the Beadle, his warnings that we ignored. He was right. He saw what was coming, and we refused to listen.
+                        
+                        I try to push these thoughts away, but the fear is unbearable. How much longer can we endure this? The train rattles on, carrying us into the unknown. In the darkness, I close my eyes and whisper a prayer, though I do not know if anyone is listening.
+                        
+                        </div>
+                </div>
+
+
+                <div class="dot"></div>
+                <div class="point" data-content="As Soviet forces advance toward Auschwitz, the SS begins evacuating the camp, forcing around 60,000 prisoners on a brutal death march westward. Those too weak to walk are executed on the spot. Over 15,000 prisoners die from exposure, starvation, or shootings during the journey. The evacuation aims to prevent the liberation of prisoners who could testify to the Nazis' crimes. When Soviet troops arrive at Auschwitz on January 27, they find only 7,000 survivors, mostly sick and dying. The liberation of Auschwitz exposes the full horror of Nazi atrocities, with gas chambers, crematoria, and mass graves revealing the scale of genocide.">
+                    <div class="event-title">Auschwitz death march</div>
+                    <div class="year">January 17, 1945  </div>
+                    <div class="content">As Soviet forces advance toward Auschwitz, the SS begins evacuating the camp, forcing around 60,000 prisoners on a brutal death march westward. Those too weak to walk are executed on the spot. Over 15,000 prisoners die from exposure, starvation, or shootings during the journey. The evacuation aims to prevent the liberation of prisoners who could testify to the Nazis' crimes. When Soviet troops arrive at Auschwitz on January 27, they find only 7,000 survivors, mostly sick and dying. The liberation of Auschwitz exposes the full horror of Nazi atrocities, with gas chambers, crematoria, and mass graves revealing the scale of genocide.
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="I am still alive. Barely.
+
+                Auschwitz is behind me now, but the nightmare is far from over. We left in the freezing darkness three days ago, forced to march through the snow with no food, no rest, only the crack of whips and the sharp bite of the cold keeping us moving. I saw men fall beside me, their bodies collapsing into the snow, lifeless before they hit the ground. The SS did not hesitate—they shot anyone who could not keep up. The snow was stained red.
+                
+                I do not know how I am still standing. My feet are numb, my stomach a hollow pit. My father is with me, but he is weak. His breathing is labored, and I fear he will not last much longer. I try to support him, to give him my strength, but I have so little left to give the others were right but I still give.
+                
+                I no longer pray. The words feel empty now. Where was God when we were herded like cattle? Where was He when my mother and little sister were taken from me forever? There is nothing left but survival.
+                
+                I do not know where they are taking us, only that the march does not end. We walk, and we fall, and we die, and those still standing continue forward.
+                
+                I am afraid to sleep. I know that if I close my eyes, I may never open them again.
+                ">
+                    <div class="event-title">Elies Dairy</div>
+                    <div class="year">January 20, 1945</div>
+                    <div class="content">I am still alive. Barely.
+
+                        Auschwitz is behind me now, but the nightmare is far from over. We left in the freezing darkness three days ago, forced to march through the snow with no food, no rest, only the crack of whips and the sharp bite of the cold keeping us moving. I saw men fall beside me, their bodies collapsing into the snow, lifeless before they hit the ground. The SS did not hesitate—they shot anyone who could not keep up. The snow was stained red.
+                        
+                        I do not know how I am still standing. My feet are numb, my stomach a hollow pit. My father is with me, but he is weak. His breathing is labored, and I fear he will not last much longer. I try to support him, to give him my strength, but I have so little left to give the others were right but I still give.
+                        
+                        I no longer pray. The words feel empty now. Where was God when we were herded like cattle? Where was He when my mother and little sister were taken from me forever? There is nothing left but survival.
+                        
+                        I do not know where they are taking us, only that the march does not end. We walk, and we fall, and we die, and those still standing continue forward.
+                        
+                        I am afraid to sleep. I know that if I close my eyes, I may never open them again.
+                        </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="Japan formally surrenders to the Allies aboard the USS Missouri in Tokyo Bay, bringing World War II to an official end. The ceremony is attended by U.S. General Douglas MacArthur, who oversees the proceedings, and representatives of the Allied nations. Japan's surrender follows the atomic bombings of Hiroshima and Nagasaki in August, as well as the Soviet Union's declaration of war. The end of the war marks the beginning of a new geopolitical order, with the United States and the Soviet Union emerging as superpowers. The world begins efforts to rebuild, while the horrors of the Holocaust and war crimes trials shape postwar justice .">
+                    <div class="event-title">End of WWII</div>
+                    <div class="year">September 2, 1945  
+                    </div>
+                    <div class="content">Japan formally surrenders to the Allies aboard the USS Missouri in Tokyo Bay, bringing World War II to an official end. The ceremony is attended by U.S. General Douglas MacArthur, who oversees the proceedings, and representatives of the Allied nations. Japan's surrender follows the atomic bombings of Hiroshima and Nagasaki in August, as well as the Soviet Union's declaration of war. The end of the war marks the beginning of a new geopolitical order, with the United States and the Soviet Union emerging as superpowers. The world begins efforts to rebuild, while the horrors of the Holocaust and war crimes trials shape postwar justice .
+                    </div>
+                </div>
+                <div class="dot"></div>
+                <div class="point" data-content="">
+                    <div class="year"><a href="https://docs.google.com/document/d/1SxU9PShtsElud6rMC4E3KkWx_GfEvLalT0fvjcjBxRE/edit?usp=sharing">Credits</a></div>
+                 <div class="content">                   
+                </div>
+               </div>
+                
+                
+                
+                
+            </div>
+        </div>
+        
+        <div class="content-display">
+            <div class="content-text" id="contentText">
+                Click on a timeline point to view details
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const timelinePoints = document.getElementById('timelinePoints');
+        const contentText = document.getElementById('contentText');
+        const points = document.querySelectorAll('.point');
+        
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+        let currentTranslateX = 0;
+
+        // Add click event to each point
+        points.forEach(point => {
+            point.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const content = point.getAttribute('data-content');
+                contentText.textContent = content;
+            });
+        });
+
+        timelinePoints.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - timelinePoints.offsetLeft;
+            scrollLeft = currentTranslateX;
+            timelinePoints.classList.add('grabbing');
+        });
+
+        timelinePoints.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX - timelinePoints.offsetLeft;
+            scrollLeft = currentTranslateX;
+            timelinePoints.classList.add('grabbing');
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            
+            const x = e.pageX - timelinePoints.offsetLeft;
+            const walk = (x - startX) * 0.5;
+            const maxScroll = -(timelinePoints.offsetWidth - window.innerWidth + 40);
+            const newTranslate = Math.min(0, Math.max(maxScroll, scrollLeft + walk));
+            
+            currentTranslateX = newTranslate;
+            timelinePoints.style.transform = `translateX(${currentTranslateX}px)`;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            
+            const x = e.touches[0].pageX - timelinePoints.offsetLeft;
+            const walk = (x - startX) * 0.5;
+            const maxScroll = -(timelinePoints.offsetWidth - window.innerWidth + 40);
+            const newTranslate = Math.min(0, Math.max(maxScroll, scrollLeft + walk));
+            
+            currentTranslateX = newTranslate;
+            timelinePoints.style.transform = `translateX(${currentTranslateX}px)`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            timelinePoints.classList.remove('grabbing');
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+            timelinePoints.classList.remove('grabbing');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            isDragging = false;
+            timelinePoints.classList.remove('grabbing');
+        });
+    </script>
+</body>
+</html>
+
